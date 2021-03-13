@@ -8,11 +8,10 @@ public class Calculator {
     private static final Logger logger = LogManager.getLogger(Calculator.class);
     public static void main(String[] args) {
 
-        System.out.println("Enter your Choice: \n 1.Factorial \n 2.Power \n 3.Square Root\n 4.Natural Log\n 5.Exit\n");
-        Scanner sc = new Scanner(System.in);
-        int ch = sc.nextInt();
         while (true) {
-
+            System.out.println("Enter your Choice: \n 1.Factorial \n 2.Power \n 3.Square Root\n 4.Natural Log\n 5.Exit\n");
+            Scanner sc = new Scanner(System.in);
+            int ch = sc.nextInt();
             try {
                 switch (ch) {
                     case 1:
