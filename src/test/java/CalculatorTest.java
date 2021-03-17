@@ -9,52 +9,54 @@ public class CalculatorTest {
     Calculator c = new Calculator();
 
     @Test
+    public void logarithmPositive() {
+        assertEquals("Test case for True Positive for logarithm", 1.3862943611198906, c.logarithm(4.0), delta);
+        assertEquals("Test case for True Negative for logarithm", Double.NaN, c.logarithm(-4.0), delta);
+    }
+
+    @Test
+    public void logarithmNegative() {
+        assertNotEquals("Test case for False Negative for logarithm", 4.0, c.logarithm(-4.0), delta);
+        assertNotEquals("Test case for False Positive for logarithm", Double.NaN, c.logarithm(4.0), delta);
+    }
+
+    @Test
     public void squareRootPositive() {
-        assertEquals("Testing True Positive for squareRoot", 5.0, c.sqroot(25), delta);
-        assertEquals("Testing for True Negative for squareRoot", Double.NaN, c.sqroot(-25), delta);
+        assertEquals("Test case for True Positive for squareRoot", 4.0, c.sqroot(16.0), delta);
+        assertEquals("Test case for True Negative for squareRoot", Double.NaN, c.sqroot(-16.0), delta);
     }
 
     @Test
     public void squareRootNegative() {
-        assertNotEquals("Testing False Negative for squareRoot", 6.0, c.sqroot(-24.0), delta);
-        assertNotEquals("Testing for False Positives for squareRoot", Double.NaN, c.sqroot(36.0), delta);
+        assertNotEquals("Test case for False Negative for squareRoot", 4.0, c.sqroot(-16.0), delta);
+        assertNotEquals("Test case for False Positive for squareRoot", Double.NaN, c.sqroot(16.0), delta);
     }
 
     @Test
     public void factorialPositive() {
-        assertEquals("Testing True Positive for factorial", 24.0, c.fact(4), delta);
-        assertEquals("Testing for True Negative for factorial", Double.NaN, c.fact(-25), delta);
+        assertEquals("Test case for True Positive for factorial", 24.0, c.fact(4), delta);
+        assertEquals("Test case for True Negative for factorial", Double.NaN, c.fact(-4), delta);
 
     }
 
     @Test
     public void factorialNegative() {
-        assertNotEquals("Testing False Negative for factorial", 6.0, c.fact(-24), delta);
-        assertNotEquals("Testing for False Positives for factorial", Double.NaN, c.fact(36), delta);
+        assertNotEquals("Test case for False Negative for factorial", 4.0, c.fact(-4), delta);
+        assertNotEquals("Test case for False Positive for factorial", Double.NaN, c.fact(4), delta);
     }
 
-    @Test
-    public void logarithmPositive() {
-        assertEquals("Testing True Positive for logarithm", 2.302585092994046, c.logarithm(10.0), delta);
-        assertEquals("Testing for True Negative for logarithm", Double.NaN, c.logarithm(-25.0), delta);
-    }
 
-    @Test
-    public void logarithmNegative() {
-        assertNotEquals("Testing False Negative for logarithm", 6.0, c.logarithm(-24.0), delta);
-        assertNotEquals("Testing for False Positives for logarithm", Double.NaN, c.logarithm(36.0), delta);
-    }
 
     @Test
     public void powerPositive() {
-        assertEquals("Testing True Positive for PowerFunction", 8.0, c.power(2.0, 3.0), delta);
-        assertEquals("Testing True Negative for PowerFunction", 0.125, c.power(2.0, -3.0), delta);
+        assertEquals("Test case True Positive for PowerFunction", 16.0, c.power(4.0, 2.0), delta);
+        assertEquals("Test case True Negative for PowerFunction", 0.25, c.power(2.0, -2.0), delta);
     }
 
     @Test
     public void powerNegative() {
-        assertNotEquals("Testing False Negative for PowerFunction", 8.0, c.power(0.0, 0.0), delta);
-        assertNotEquals("Testing False Positive for PowerFunction", 6.0, c.power(2.0, -3.0), delta);
+        assertNotEquals("Test case for False Negative for PowerFunction", 4.0, c.power(1.0, 4.0), delta);
+        assertNotEquals("Test case for False Positive for PowerFunction", 4.0, c.power(2.0, 4.0), delta);
     }
 
 }
